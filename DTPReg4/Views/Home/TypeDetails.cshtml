@@ -1,0 +1,29 @@
+﻿@using DTPReg4.Models
+@model DTPReg4.Models.Type
+@{
+    ViewBag.Title = "Тип правопорушення: " + @Model.Name;
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <h4>Тип правопорушення @Model.Name</h4>
+    <hr />
+    <dl>
+        <dt>Тип</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt>Покарання</dt>
+        <dd>
+            @Html.DisplayFor(model => model.Punishment)
+        </dd>
+        <dt>Порушники</dt>
+        <dd>
+            <ul>
+                @foreach (Registration reg in Model.Registrations)
+                {
+                    <li>@reg.PIP (@reg.Date_Birth)</li>
+                }
+            </ul>
+        </dd>
+    </dl>
+</div> 

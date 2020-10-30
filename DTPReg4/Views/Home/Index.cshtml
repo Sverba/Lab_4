@@ -1,0 +1,57 @@
+﻿@model IEnumerable<DTPReg4.Models.Registration>
+@{
+    ViewBag.Title = "Список порушників";
+}
+<h2>ДТП</h2>
+<p>
+    @Html.ActionLink("Додати порушника", "Create")
+</p>
+<table>
+    <tr>
+        <th>ПІП порушника</th>
+        <th>Номер посвідчення</th>
+        <th>Дата народження</th>
+        <th>Марка автомобіля</th>
+        <th>Номер автомобіля</th>
+        <th>Адреса порушення</th>
+        <th>Дата</th>
+        <th>Тип</th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PIP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NPos)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_Birth)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Marka_Auto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nomer_Auto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Address)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date_Por)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Type.Name)
+        </td>
+        <td>
+            @Html.ActionLink("Редагувати", "Edit", new { id = item.Id }) |
+            @Html.ActionLink("Видалити", "Delete", new { id = item.Id })
+        </td>
+    </tr>
+    }
+</table>
+<p>
+    @Html.ActionLink("Список типів правопорушень", "TypeView")
+</p> 

@@ -1,0 +1,50 @@
+﻿@model DTPReg4.Models.Registration
+@{
+    ViewBag.Title = "Редагувати правоворушення";
+}
+<h2>Редагування порушника </h2>
+@using (Html.BeginForm())
+{
+<fieldset>
+    <legend>Порушник</legend>
+    @Html.HiddenFor(model => model.Id)
+    <p>
+        ПІП порушника <br />
+        @Html.EditorFor(model => model.PIP)
+    </p>
+    <p>
+        Номер посвідчення <br />
+        @Html.EditorFor(model => model.NPos)
+    </p>
+    <p>
+        Дата народження  <br />
+        @Html.EditorFor(model => model.Date_Birth)
+    </p>
+    <p>
+    <p>
+        Марка автомобіля <br />
+        @Html.EditorFor(model => model.Marka_Auto)
+    </p>
+    <p>
+        Номер автомобіля <br />
+        @Html.EditorFor(model => model.Nomer_Auto)
+    </p>
+    <p>
+        Адреса порушення <br />
+        @Html.EditorFor(model => model.Address)
+    </p>
+    <p>
+        Дата <br />
+        @Html.EditorFor(model => model.Date_Por)
+    </p>
+    Тип порушення <br />
+    @Html.DropDownListFor(model => model.TypeId, ViewBag.Teams as SelectList)
+    </p>
+    <p>
+        <input type="submit" value="Зберегти" />
+    </p>
+</fieldset>
+}
+<div>
+    @Html.ActionLink("Повернутися до списку порушників", "Index")
+</div>
